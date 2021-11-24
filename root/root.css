@@ -1,0 +1,100 @@
+body{
+    background-image: url('/root/assets/background_site.jpg');
+    background-size: cover;
+    margin: 0px;
+    padding: 0px
+}
+
+.Menu{
+    content:"";
+}
+
+div.Menu{
+    position: sticky;
+    display: block;
+    background:url('/root/assets/menuIcon.png'), rgb(245, 245, 245);
+    clip-path: circle(25px at 40px 35px);
+    background-size: 20px;
+    background-position-x: 30px;
+    background-position-y: 25px;
+    background-repeat: no-repeat;
+    height: fit-content;
+    width: 70px;
+    contain:content;
+    padding-left: 5px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    transition-duration: 300ms;
+    
+}
+div.Menu:hover{
+    transition-duration: 300ms;
+    background:rgba(245, 245, 245,0.7);
+    width: 160px;
+    clip-path: circle(1000px at 40px 35px);;
+}
+
+
+
+#home{
+    background: url('/root/assets/home.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+    display: flex;
+    align-items: center;
+    text-indent: 75px;
+}
+#eventos{
+    background: url('/root/assets/eventos.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+    display: flex;
+    align-items: center;
+    text-indent: 75px;
+}
+
+a.Menu{
+    transition-duration: 250ms;
+    background-color:rgba(245, 245, 245,0.5);
+    border:transparent;
+    display:grid;
+    height: 80px;
+    margin-top:20px;
+    margin-left: 0px;
+    width: 150px;
+    border-radius: 5px;
+    align-content: left;
+    justify-content: left;
+    font-family:serif;
+    align-items: center;
+
+}
+a.Menu::before{
+    content: '';
+    display: block;
+    height: 80px;
+    width:1px;
+    background-color:black;
+}
+a.Menu:hover{
+    box-shadow: 0px 2px 3px rgb(151, 168, 165);
+    transition-duration: 250ms;
+}
+#home:hover{
+    background:url('/root/assets/home.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+#eventos:hover{
+    background:url('/root/assets/eventos.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
