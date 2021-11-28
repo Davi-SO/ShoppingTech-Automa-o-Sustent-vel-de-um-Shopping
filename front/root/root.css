@@ -1,0 +1,168 @@
+body{
+    background-image: url('/root/assets/background_site.jpg');
+    background-size:cover;
+    margin: 0px;
+    padding: 0px;
+    align-content: center;
+    justify-content: center;
+    
+}
+
+.Menu{
+    content:"";
+}
+
+div.Menu{
+    position: absolute;
+    display: block;
+    background:url('/root/assets/menuIcon.png'), rgb(245, 245, 245);
+    clip-path: circle(25px at 75px 35px);
+    background-size: 20px;
+    background-position:10vh;
+    background-position-x: 65px;
+    background-position-y: 25px;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 160px;
+    contain:content;
+    padding-left: 5px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    transition-duration:500ms;
+    content-visibility: hidden;
+    
+}
+div.Menu:hover{
+    transition-duration: 500ms;
+    background:rgba(245, 245, 245,0.7);
+    width: 160px;
+    clip-path: circle(1000% at 40px 35px);
+    height: 100vh;
+    content-visibility:visible;
+
+}
+
+div.Menu::before{
+    content: '';
+    display: block;
+    height: 50px;
+    width: 50px;
+    background:url('/root/assets/ShoppingAmeliaLogo.png');
+    background-size: cover;
+    clip-path: circle(25px);
+    position: absolute;
+    top: 10px;
+    left:50px;   
+}
+
+
+
+#login{
+    background: url('/root/assets/login.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+#home{
+    background: url('/root/assets/home.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+#eventos{
+    background: url('/root/assets/eventos.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+#simulação{
+    background: url('/root/assets/simulação.png'),rgba(245, 245, 245,0.5);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+
+a.Menu{
+    transition-duration: 250ms;
+    background-color:rgba(245, 245, 245,0.5);
+    border:transparent;
+    display:flex;
+    height: 80px;
+    margin-top:20px;
+    margin-left: 0px;
+    width: 150px;
+    border-radius: 5px;
+    font-family:serif;
+    justify-content: center;
+    text-indent: 40px;
+    align-items: center;
+    
+
+
+}
+a.Menu::after{
+    content: '';
+    margin-top: 100px;
+    display: flex;
+    position: absolute;
+    height: 1px;
+    width:75px;
+    background-color:black;
+}
+a.Menu:hover{
+    box-shadow: 2px 2px 5px rgb(51, 68, 65);
+    transition-duration: 250ms;
+}
+#login:hover{
+    background:url('/root/assets/login.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+#home:hover{
+    background:url('/root/assets/home.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+#eventos:hover{
+    background:url('/root/assets/eventos.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+#simulação:hover{
+    background:url('/root/assets/simulação.png'),rgba(245, 245, 245,0.8);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+
+#eventosDiv{
+    position: absolute;
+    left: 20%;
+    top:25%;
+    height: 800px;
+    width: 800px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.calendar{
+    display: grid;
+    height:400px;
+    width:700px;
+    background-color: #fff;
+}
