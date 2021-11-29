@@ -61,8 +61,8 @@ async function selectAllTickets(req, res) {
   }
 }
 
-//get /employess
-app.get('/tickets', function (req, res) {
+//get /tickets
+app.get('/api/tickets', function (req, res) {
   selectAllTickets(req, res);
 })
 
@@ -101,7 +101,7 @@ async function selectTicketsById(req, res, id) {
 }
 
 //get /ticket/id
-app.get('/ticket/:id', function (req, res) {
+app.get('/api/ticket/:id', function (req, res) {
   //get query param :id
   var id = req.params.id;
   // id param if it is number
@@ -140,7 +140,7 @@ async function getAllVeiculos(req,res, veiculo) {
   }
 }
 
-app.get('/veiculo/:veiculo', function(req, res) {
+app.get('/api/veiculo/:veiculo', function(req, res) {
   var veiculo = req.params.veiculo;
 
   if(typeof veiculo !== 'string'){
@@ -160,7 +160,9 @@ async function remove(req, res, id) {
       connectString: "localhost:1521/XE"
     });
     
-    result = await connection.execute('DELETE FROM Ticket where id = :id', [id]);
+    result = await connection.execute(`DELETE FROM Ticket where id_ticket = :id`, [id]);
+
+    atual = await connection.execute(`SELECT * FROM Ticket`);
   } catch(err) {
     return res.send(err.message);
   } finally {
@@ -172,18 +174,18 @@ async function remove(req, res, id) {
         return console.error(err.message);
       }
     }
-    if (result.rows.length == 0) {
+    if (atual.rows.length == 0) {
       //query return zero employees
       return res.send('params send no rows');
     } else {
       //send all employees
-      return res.send(result.rows);
+      return res.send(atual.rows);
     }
   }
 }
 
 //del /ticket/id
-app.delete('/ticket/del/:id', function (req, res) {
+app.delete('/api/ticket/del/:id', function (req, res) {
   //get query param :id
   var id = req.params.id;
   // id param if it is number
