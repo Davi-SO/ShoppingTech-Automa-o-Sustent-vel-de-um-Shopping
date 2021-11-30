@@ -22,7 +22,7 @@ div.Menu{
     background-position-x: 65px;
     background-position-y: 25px;
     background-repeat: no-repeat;
-    height: 100px;
+    height: 100vh;
     width: 160px;
     contain:content;
     padding-left: 5px;
@@ -37,7 +37,6 @@ div.Menu:hover{
     background:rgba(245, 245, 245,0.7);
     width: 160px;
     clip-path: circle(1000% at 40px 35px);
-    height: 100vh;
     content-visibility:visible;
 
 }
@@ -54,6 +53,7 @@ div.Menu::before{
     top: 10px;
     left:50px;   
 }
+
 
 
 
@@ -150,19 +150,102 @@ a.Menu:hover{
     background-position-y: center;
 }
 
-#eventosDiv{
+
+
+#content-box{
+    display: flex;
     position: absolute;
-    left: 20%;
-    top:25%;
-    height: 800px;
-    width: 800px;
+    left: 10vw;
+    top: 10vh;
+    height: 80vh;
+    width: 80vw;
+    background-color: transparent;
+    align-content: center;
+    justify-content: center;
+    contain: content;
+}
+#eventosDiv{
+    transition-duration: 0.8s;
+    position: relative;
+    left: 100%;
+    height: 700px;
+    width: 500px;
     display: flex;
     align-content: center;
     justify-content: center;
 }
+
 .calendar{
-    display: grid;
-    height:400px;
+    display:grid;
+    grid-template-rows: 60px 35px ;
+    height:500px;
     width:700px;
-    background-color: #fff;
+    background-color:rgba(245,245,245,.9);
+    border-radius:8px;
+    border:2px solid red
+
+}
+.calendar td{
+    border: 1px solid black;
+    align-self: center;
+    justify-self: center; 
+}
+.calendar tr{
+    border: 1px solid black;
+}
+.calendar thead{
+
+    font-size: 28px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    font-family:Verdana,Tahoma, sans-serif;
+    color:rgba(0,0,0,.9);
+}
+.calendar thead::after{
+    content: '';
+    display: flex;
+    width: 80%;
+    height: 1px;
+    justify-self: center;
+    background-color: black;
+}
+
+.calendar td{
+    display: flexbox;
+    height: 60px;
+    width: 60px;
+    padding-top: 5px;
+
+    vertical-align: middle;
+    text-align: center;
+    border-color: gray;
+    border-radius: 5px;
+    font-size: 90%;
+
+}
+
+.calendar tr{
+    display: grid;
+    border-color: transparent;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+    width:100%;
+}
+
+#december8::after{
+    content:'Entrega PI-2';
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    font-size: 80%;
+}
+#december25::after{
+    content:'Natal';
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    font-size: 80%;
 }
