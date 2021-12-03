@@ -1,7 +1,7 @@
-@import url(/pi.estacionamento.css);
+@import url(../pi.estacionamento.css);
 body{
     
-    background: url("/entrada/assets/entrada_estacionamento.jpg"),rgba(0,0,0,.7);
+    background: url("./assets/entrada_estacionamento.jpg"),rgba(0,0,0,.7);
     background-repeat: no-repeat;
     background-position: top;
 }
@@ -81,12 +81,12 @@ body{
     position: absolute;
     height: 15px;
     width: 15px;
-    background-image: url('/entrada/assets/totemFlagLamp.png');
+    background-image: url('./assets/totemFlagLamp.png');
 }
 
 .cancelaFechada{
     position:absolute;
-    background-image: url('/entrada/assets/cancela_texture.jpg');
+    background-image: url('./assets/cancela_texture.jpg');
     background-repeat: repeat-x;
     background-origin:border-box;
     top: 65%;
@@ -98,7 +98,7 @@ body{
 }
 .cancelaAberta{
     position:absolute;
-    background-image: url('/entrada/assets/cancela_texture.jpg');
+    background-image: url('./assets/cancela_texture.jpg');
     background-repeat: repeat-x;
     top: 65%;
     left: 38%;

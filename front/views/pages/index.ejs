@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+<head>
+    <%- include('../partials/header'); %>
+</head>
+<style>
+    html{
+        height: 100vh;
+    }
+</style>
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <%- include('../partials/head'); %>
+        <div class="container">
+            <table class="table" id="table">
+                <thead>
+                  <tr id="tableHeader">
+                    <th scope="col">ID</th>
+                    <th scope="col">HORÁRIO</th>
+                    <th scope="col">VEICULO</th>
+                    <th scope="col">PREFERENCIAL</th>
+                    <th scope="col">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% Tickets.forEach(function(ticket) { %>
+                        <tr>
+                            <td> <%= ticket[0] %> </td>
+                            <td> <%= ticket[1] %> </td>
+                            <td> <%= ticket[3] %> </td>
+                            <td> <%= ticket[4] %> </td>
+                            <td>
+                                <button class="btn btn-danger">Excluir</button>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+              </table>
+        </div>
+        
+        
+        <%- include('../partials/footer'); %>
+    </body>
+    </html>

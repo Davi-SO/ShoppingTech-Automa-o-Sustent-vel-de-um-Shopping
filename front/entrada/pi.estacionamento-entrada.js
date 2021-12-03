@@ -8,7 +8,7 @@ class Ticket {
         this.tipoVeiculo = "MMMBCCCCCC"[(Math.floor(Math.random()*10))];
         ///125 pref
         this.vagaPreferencial = Math.round(Math.random()*0.8);
-        entrada.ticket = this;
+        //entrada.ticket = this;
     }
     tempo_total(){
         let tempo = (Math.floor(Date.now()) - Math.floor(this.horaEntrada.getTime())) / 60000;
@@ -172,7 +172,7 @@ class Ticket {
 
         //nextPage
         const nextPage = document.createElement('a');
-        nextPage.href = "http://127.0.0.1:5500/Pagamento/pagamento.html";
+        nextPage.href = "../Pagamento/";
         const nextPageFrame = document.createElement('div');
         
         nextPage.appendChild(nextPageFrame);

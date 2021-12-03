@@ -1,5 +1,5 @@
 body{
-    background-image: url('/root/assets/background_site.jpg');
+    background-image: url('./assets/background_site.jpg');
     background-size:cover;
     margin: 0px;
     padding: 0px;
@@ -15,7 +15,7 @@ body{
 div.Menu{
     position: absolute;
     display: block;
-    background:url('/root/assets/menuIcon.png'), rgb(245, 245, 245);
+    background:url('./assets/menuIcon.png'), rgb(245, 245, 245);
     clip-path: circle(25px at 75px 35px);
     background-size: 20px;
     background-position:10vh;
@@ -46,7 +46,7 @@ div.Menu::before{
     display: block;
     height: 50px;
     width: 50px;
-    background:url('/root/assets/ShoppingAmeliaLogo.png');
+    background:url('./assets/ShoppingAmeliaLogo.png');
     background-size: cover;
     clip-path: circle(25px);
     position: absolute;
@@ -58,7 +58,7 @@ div.Menu::before{
 
 
 #login{
-    background: url('/root/assets/login.png'),rgba(245, 245, 245,0.5);
+    background: url('./assets/login.png'),rgba(245, 245, 245,0.5);
     background-size: 30px;
     background-repeat: no-repeat;
     background-position-x: 20px;
@@ -66,7 +66,7 @@ div.Menu::before{
 
 }
 #home{
-    background: url('/root/assets/home.png'),rgba(245, 245, 245,0.5);
+    background: url('./assets/home.png'),rgba(245, 245, 245,0.5);
     background-size: 30px;
     background-repeat: no-repeat;
     background-position-x: 20px;
@@ -74,7 +74,7 @@ div.Menu::before{
 
 }
 #eventos{
-    background: url('/root/assets/eventos.png'),rgba(245, 245, 245,0.5);
+    background: url('./assets/eventos.png'),rgba(245, 245, 245,0.5);
     background-size: 30px;
     background-repeat: no-repeat;
     background-position-x: 20px;
@@ -82,7 +82,7 @@ div.Menu::before{
 
 }
 #simulação{
-    background: url('/root/assets/simulação.png'),rgba(245, 245, 245,0.5);
+    background: url('./assets/simulação.png'),rgba(245, 245, 245,0.5);
     background-size: 25px;
     background-repeat: no-repeat;
     background-position-x: 20px;
@@ -122,28 +122,28 @@ a.Menu:hover{
     transition-duration: 250ms;
 }
 #login:hover{
-    background:url('/root/assets/login.png'),rgba(245, 245, 245,0.8);
+    background:url('./assets/login.png'),rgba(245, 245, 245,0.8);
     background-size: 40px;
     background-repeat: no-repeat;
     background-position-x: 20px;
     background-position-y: center;
 }
 #home:hover{
-    background:url('/root/assets/home.png'),rgba(245, 245, 245,0.8);
+    background:url('./assets/home.png'),rgba(245, 245, 245,0.8);
     background-size: 40px;
     background-repeat: no-repeat;
     background-position-x: 20px;
     background-position-y: center;
 }
 #eventos:hover{
-    background:url('/root/assets/eventos.png'),rgba(245, 245, 245,0.8);
+    background:url('./assets/eventos.png'),rgba(245, 245, 245,0.8);
     background-size: 40px;
     background-repeat: no-repeat;
     background-position-x: 20px;
     background-position-y: center;
 }
 #simulação:hover{
-    background:url('/root/assets/simulação.png'),rgba(245, 245, 245,0.8);
+    background:url('./assets/simulação.png'),rgba(245, 245, 245,0.8);
     background-size: 35px;
     background-repeat: no-repeat;
     background-position-x: 20px;

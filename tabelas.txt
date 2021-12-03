@@ -17,8 +17,8 @@ create table Ticket (
 
 create table Pagamento (
     cod_pagamento number (5) CONSTRAINT pk_att_pagamento PRIMARY KEY,
-    data_pagamento TIMESTAMP WITH LOCAL TIME ZONE,
-    hora_pagamento TIMESTAMP WITH LOCAL TIME ZONE,
+    data_pagamento VARCHAR2 (21),
+    hora_pagamento VARCHAR2 (21),
     valor_pagamento varchar2 (10),
     status char(1),
     id_cliente number(10),
