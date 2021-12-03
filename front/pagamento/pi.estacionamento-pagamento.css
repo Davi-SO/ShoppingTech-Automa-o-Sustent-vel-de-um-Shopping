@@ -1,0 +1,142 @@
+body{
+    background-image: url("./assets/wallpaper.jpg");
+    background-size:cover;
+    background-repeat:repeat;
+    background-position-x: center;
+    background-position-y: 25%;
+    background-repeat: no-repeat;
+}
+
+.tabela{
+    height: 350px;
+    width: 160px;
+    background-image: url('./assets/wood.jpg');
+    position: absolute;
+    top:120px;
+    left: 200px;
+    border-radius: 5px;
+
+}
+.tabela::after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -50px;
+    left: -10px;
+    background-image:url('./assets/silver.jpg');
+    clip-path: ellipse(80px 50px at bottom);
+    height: 30px;
+    width:180px;
+
+}
+.tabela::before{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom:-50px;
+    left:40px;
+    height: 50px;
+    width:80px;
+
+    background: 
+        linear-gradient(90deg,transparent 70%,burlywood 30%),
+        linear-gradient(-90deg,transparent 70%,burlywood 30%),
+        radial-gradient(ellipse at left,transparent 70%,silver 30%),
+        radial-gradient(ellipse at right,transparent 70%,silver 30%);
+}
+.preços{
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    background-image: url('./assets/steel.jpg');
+    background-position-y: -100px;
+    height: 300px;
+    width: 140px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 14px;
+    font-family:'Times New Roman', Times, serif,'Times New Roman', Times, serif;
+    text-align: center;
+}
+.telaDePagamento{
+    position: absolute;
+    top: 150px;
+    left: 500px;
+    background-image: url('./assets/miniScreenWallpaper.gif');
+    background-size: cover;
+    height: 300px;
+    width: 600px;
+    border:8px groove darkslategrey;
+}
+
+.telaDePagamento::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -100px;
+    left:100px;
+    height: 100px;
+    width: 400px;
+    background:
+        radial-gradient(ellipse at top left,transparent 70%,black 70%),
+        radial-gradient(ellipse at top right ,transparent 70%,black 70%);
+    background-position-x: -200px;
+    background-position-y:10px;
+    background-repeat: repeat-x;
+}
+.startBtn{
+    height: 60px;
+    width: 200px;
+    position: absolute;
+    top:120px;
+    left:200px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: radial-gradient(ellipse at top left,rgb(61, 156, 233) 70%,rgb(72, 204, 216) 70% );
+    background-size: 125%;
+    border:2px solid black;
+    font-family:'Times New Roman', Times, serif, Verdana;
+}
+.startBtn:hover{
+    box-shadow: 0px 0px 5px 2px cyan;
+}
+
+.selectionHeader{
+    text-align: center;
+}
+
+.dinheiroBtn{
+    height: 60px;
+    width: 100px;
+    position: absolute;
+    top:160px;
+    left:100px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: radial-gradient(ellipse at top left,#00C700 70% ,#00D400 70%);
+    background-size: 125%;
+    border:2px solid black;
+    font-family:'Times New Roman', Times, serif, Verdana;
+    visibility: hidden;
+}
+.dinheiroBtn:hover{
+    box-shadow: 0px 0px 5px 2px #00C700;
+}
+.pixBtn{
+    height: 60px;
+    width: 100px;
+    position: absolute;
+    top:160px;
+    left:400px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: radial-gradient(ellipse at top left,#00c7ac 70% ,#00a2d4 70%);
+    background-size: 125%;
+    border:2px solid black;
+    font-family:'Times New Roman', Times, serif, Verdana;
+    visibility: hidden;
+}
+.pixBtn:hover{
+    box-shadow: 0px 0px 5px 2px #00a2d4;
+}
