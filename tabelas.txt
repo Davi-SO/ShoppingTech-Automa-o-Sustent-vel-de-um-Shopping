@@ -1,30 +1,17 @@
-create table Usuario (
-    id_cliente number(10) CONSTRAINT pk_att_usuario PRIMARY KEY,
-    status_pagamento varchar2(1),
-    numero_cartao varchar2(20),
-    cod_cartao varchar2(20),
-    cpf_cliente varchar2 (10),
-    nome_completo varchar2 (30),
-    data_nasc date,
-    email varchar2 (10));
-    
 create table Ticket (
     id_ticket number (10) CONSTRAINT pk_att_ticket PRIMARY KEY,
     hora_entrada VARCHAR2 (21),
-    hora_saida VARCHAR2 (21),
     tipo_veiculo varchar2 (20),
     cliente_preferencial varchar2(1));
 
 create table Pagamento (
     cod_pagamento number (5) CONSTRAINT pk_att_pagamento PRIMARY KEY,
-    data_pagamento VARCHAR2 (21),
-    hora_pagamento VARCHAR2 (21),
+    hora_pagamento varchar(21),
     valor_pagamento varchar2 (10),
-    status char(1),
     id_ticket number (10),
     foreign key (id_ticket)references Ticket(id_ticket));
     
-DESCRIBE Pagamento;
+DESCRIBE Ticket;
         
 CREATE SEQUENCE ticketSeq MINVALUE 1000 MAXVALUE 10000 INCREMENT BY 1;
 
@@ -34,11 +21,30 @@ CREATE TRIGGER ticketTri before insert on Ticket
             select ticketSeq.nextval into:new.id_ticket
         from dual;
     end;
+    
+CREATE SEQUENCE PagamentoSeq MINVALUE 1 INCREMENT BY 1;
 
+CREATE TRIGGER pagamentoTri before insert on Pagamento
+    for each row
+        begin
+            select pagamentoSeq.nextval into:new.cod_pagamento
+        from dual;
+    end;
+    
+
+
+--Ticket
 INSERT ALL
     INTO Ticket (hora_entrada, tipo_veiculo, cliente_preferencial) VALUES (TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS'), 'Carro', 'S')
     INTO Ticket (hora_entrada, tipo_veiculo, cliente_preferencial) VALUES (TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS'), 'Moto', 'N')
     INTO Ticket (hora_entrada, tipo_veiculo, cliente_preferencial) VALUES (TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS'), 'Bike', 'N')
+SELECT * FROM dual;
+
+--Pagamento
+INSERT ALL
+    INTO Pagamento (hora_pagamento, valor_pagamento, id_ticket) VALUES (TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS'), 19, 1000)
+    INTO Pagamento (hora_pagamento, valor_pagamento, id_ticket) VALUES (TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS'), 19, 1002)
+    INTO Pagamento (hora_pagamento, valor_pagamento, id_ticket) VALUES (TO_CHAR(SYSDATE, 'MM-DD-YYYY HH24:MI:SS'), 19, 1004)
 SELECT * FROM dual;
 
 select * from Ticket;
