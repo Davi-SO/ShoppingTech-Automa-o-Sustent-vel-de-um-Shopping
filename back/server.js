@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const controlsTicket = require('./src/controllers/controller.ticket.js');
+const controlsPagamento = require('./src/controllers/controller.pagamento.js')
 var moment = require('moment');
 
 const app = express();
@@ -22,24 +23,12 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//default
+// TICKETS
+
 app.get("/", async function(req, res){
   await controlsTicket.selectAllTickets(req, res);
 });
 
-// -------------------------------------------------------------------------
-
-
-//get /tickets
-app.get('/api/tickets', async function(req, res){
-  controlsTicket.selectAllTickets(req, res);
-})
-
-// -------------------------------------------------------------------------
-
-
-
-//get /ticket/id
 app.get('/api/ticket/:id', async function (req, res){
   //get query param :id
   var id = req.params.id;
@@ -51,25 +40,7 @@ app.get('/api/ticket/:id', async function (req, res){
   selectTicketsById(req, res, id);
 });
 
-// -------------------------------------------------------------------------
-
-
-app.get('/api/veiculo/:veiculo', async function(req, res){
-  var veiculo = req.params.veiculo;
-
-  if(typeof veiculo !== 'string'){
-    res.send("Query param veiculo is not a string!")
-    return
-  }
-  getAllVeiculos(req,res,veiculo);
-
-});
-
-// -------------------------------------------------------------------------
-
-
-//del /ticket/id
-app.delete('/api/ticket/del/:id', async function (req, res){
+app.get('/api/ticket/del/:id', async function (req, res){
   //get query param :id
   var id = req.params.id;
   // id param if it is number
@@ -77,42 +48,47 @@ app.delete('/api/ticket/del/:id', async function (req, res){
     res.send('Query param id is not number');
     return
   }
-  remove(req, res, id);
+  await controlsTicket.removeTicket(req, res, id);
 });
 
-//Insert
-
-app.put('/api/newTicket', async function (req, res){
+app.post('/api/newTicket/', async function (req, res){
 
   var timeLord = moment(Date.now()).format('DD-MM-YYYY HH:mm:ss');
   JSON.stringify(timeLord);
 
-  criaTicket(req, res, timeLord);
+  const veiculo = req.body.veiculo;
+  const preferencial = req.body.preferencial;
+
+
+  await controlsTicket.criaTicket(req, res, timeLord, veiculo, preferencial);
 });
 
+// PAGAMENTOS
 
-app.post('/api/newPayment', async function (req, res){
+app.get('/pagamentos', async function(req, res){
+  await controlsPagamento.getAllPagamentos(req,res);
+});
+
+app.get('/api/pagamento/del/:id', async function (req, res){
+  //get query param :id
+  var id = req.params.id;
+  // id param if it is number
+  if (isNaN(id)) {
+    res.send('Query param id is not number');
+    return
+  }
+  await controlsPagamento.removePagamento(req, res, id);
+});
+
+app.post('/api/newPayment/', async function (req, res){
+
+  const codigoTicket = req.body.ticketId;
+  const valor = req.body.valor;
 
   var timeLord = moment(Date.now()).format('DD-MM-YYYY HH:mm:ss');
   JSON.stringify(timeLord);
 
-  criaPagamento(req, res, timeLord);
+  await controlsPagamento.criaPagamento(req, res, timeLord, valor, codigoTicket);
 });
-
-
-// -------------------------------------------------------------------------
-
-//UPDATE
-/*async function updateById(req, res, id) {
-  try{
-    connection = await oracledb.getConnection({
-      user: "system",
-      password: password,
-      connectString: "localhost:1521/XE"
-    });
-
-    result = await connection.execute(`UPDATE Pagamento SET `)
-  } 
-} */
 
 app.listen(port, () => console.log("nodeOracleRestApi app listening on port %s!", port))

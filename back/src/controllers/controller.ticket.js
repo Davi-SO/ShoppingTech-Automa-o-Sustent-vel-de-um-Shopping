@@ -3,6 +3,7 @@
 //Listar GET
 //Processo complexo POST
 const oracledb = require('oracledb');
+oracledb.autoCommit = true;
 
 async function selectAllTickets(req, res) {
   try {
@@ -74,34 +75,7 @@ async function selectTicketsById(req, res, id) {
   }
 }
 
-async function getAllVeiculos(req,res, veiculo) {
-  try{
-    connection = await oracledb.getConnection({
-      user: "system",
-      password: "admin",
-      connectString: "localhost:1521/XE"
-    });
-    result = await connection.execute(`SELECT * FROM Ticket where tipo_veiculo like '%${veiculo}%'`);
-
-  } catch(err) {
-    return res.send(err.message);
-  } finally {
-    if(connection) {
-      try{
-        await connection.close();
-      } catch(err) {
-        returnconsole.error(err.message);
-      }
-    }
-    if(result.rows.length == 0) {
-      return res.send('params send no rows');
-    } else {
-      return res.send(result.rows);
-    }
-  }
-}
-
-async function remove(req, res, id) {
+async function removeTicket(req, res, id) {
   try {
     connection = await oracledb.getConnection({
       user: "system",
@@ -128,12 +102,15 @@ async function remove(req, res, id) {
       return res.send('params send no rows');
     } else {
       //send all employees
-      return res.send(atual.rows);
+      //return res.send(atual.rows);
+      return res.render('pages/index', {
+        Tickets: atual.rows
+      });
     }
   }
 }
 
-async function criaTicket(req, res, time){
+async function criaTicket(req, res, time, veiculo, preferencial){
   try {
     connection = await oracledb.getConnection({
       user: "system",
@@ -141,7 +118,7 @@ async function criaTicket(req, res, time){
       connectString: "localhost:1521/XE"
     });
 
-    result = await connection.execute(`INSERT INTO Ticket (hora_entrada, tipo_veiculo, cliente_preferencial) VALUES ('${time}', 'Carro', 'N')`);
+    result = await connection.execute(`INSERT INTO Ticket (hora_entrada, tipo_veiculo, cliente_preferencial) VALUES ('${time}', :veiculo, :preferencial)`, [veiculo, preferencial]);
 
     atual = await connection.execute(`SELECT * FROM Ticket`);
     
@@ -161,50 +138,17 @@ async function criaTicket(req, res, time){
       return res.send('params send no rows');
     } else {
       //send all employees
-      return res.send(atual.rows);
+      
+      return res.render('pages/index', {
+        Tickets: atual.rows
+      });
     }
   }
 }
-
-async function criaPagamento(req, res, time){
-  try {
-    connection = await oracledb.getConnection({
-      user: "system",
-      password: "admin",
-      connectString: "localhost:1521/XE"
-    });
-
-    result = await connection.execute(`INSERT INTO Pagamento (hora_entrada, tipo_veiculo, cliente_preferencial) VALUES ('${time}', 'Carro', 'N')`);
-
-    atual = await connection.execute(`SELECT * FROM Pagamento`);
-    
-  } catch(err) {
-    return res.send(err.message);
-  } finally {
-    if (connection) {
-      try {
-        // Always close connections
-        await connection.close(); 
-      } catch (err) {
-        return console.error(err.message);
-      }
-    }
-    if (atual.rows.length == 0) {
-      //query return zero employees
-      return res.send('params send no rows');
-    } else {
-      //send all employees
-      return res.send(atual.rows);
-    }
-  }
-}
-
 
 module.exports = {
   selectAllTickets: selectAllTickets,
   selectTicketsById: selectTicketsById,
-  getAllVeiculos: getAllVeiculos, 
-  remove: remove, 
+  removeTicket: removeTicket,
   criaTicket: criaTicket, 
-  criaPagamento: criaPagamento 
 }

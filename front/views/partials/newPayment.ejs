@@ -1,0 +1,25 @@
+<div class="modal fade" id="PaymentModal" tabindex="-1" aria-labelledby="novoPagamento" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentModalLabel">Cadastrar Pagamento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="/api/newPayment/" method="POST">
+              <div class="mb-3">
+                <label for="ticketId" class="form-label">Digite o ID do Ticket</label>
+                <input type="text" class="form-control" name="ticketId" id="ticketId">
+              </div>
+              <div class="mb-3">
+                <label for="valor" class="form-label">Valor a ser pago</label>
+                <input type="text" class="form-control" name="valor" id="valor">
+              </div>
+              <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-primary">Pagar</button>
+              </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>

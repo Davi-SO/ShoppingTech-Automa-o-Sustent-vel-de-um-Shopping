@@ -21,9 +21,7 @@ create table Pagamento (
     hora_pagamento VARCHAR2 (21),
     valor_pagamento varchar2 (10),
     status char(1),
-    id_cliente number(10),
     id_ticket number (10),
-    foreign key (id_cliente)references Usuario(id_cliente),
     foreign key (id_ticket)references Ticket(id_ticket));
     
 DESCRIBE Pagamento;

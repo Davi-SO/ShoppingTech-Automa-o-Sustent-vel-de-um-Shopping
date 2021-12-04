@@ -24,10 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Todos os tickets</a>
+                            <a class="nav-link" href="/">Todos os tickets</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pagamentos">Todos os pagamentos</a>
+                            <a class="nav-link active" aria-current="page" href="#">Todos os pagamentos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#PaymentModal" role="button">Novo Pagamento</a>
@@ -45,24 +45,24 @@
                     <tr id="tableHeader">
                         <th scope="col">ID</th>
                         <th scope="col">HORÁRIO</th>
-                        <th scope="col">VEICULO</th>
-                        <th scope="col">PREFERENCIAL</th>
+                        <th scope="col">VALOR</th>
+                        <th scope="col">TICKET</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% Tickets.forEach(function(ticket) { %>
+                    <% Pagamentos.forEach(function(pagamento) { %>
                         <tr>
-                            <td> <%= ticket[0] %> </td>
-                            <td> <%= ticket[1] %> </td>
-                            <td> <%= ticket[2] %> </td>
-                            <td> <%= ticket[3] %> </td>
+                            <td> <%= pagamento[0] %> </td>
+                            <td> <%= pagamento[1] %> </td>
+                            <td> <%= pagamento[2] %> </td>
+                            <td> <%= pagamento[3] %> </td>
                             <td>
-                                <a href="http://localhost:8082/api/ticket/del/<%= ticket[0] %>"><i class="bi bi-trash fs-5" style="color: red;"></i></a>
+                                <a href="http://localhost:8082/api/pagamento/del/<%= pagamento[0] %>"><i class="bi bi-trash fs-5" style="color: red;"></i></a>
                             </td>
                         </tr>
                     <% }); %>
-                    </tbody>
+                </tbody>
             </table>
         </div>
 
