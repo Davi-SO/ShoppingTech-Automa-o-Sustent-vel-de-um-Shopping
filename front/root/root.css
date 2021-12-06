@@ -1,0 +1,277 @@
+body{
+    background-image: url('./assets/background_site.jpg');
+    background-size:cover;
+    margin: 0px;
+    padding: 0px;
+    align-content: center;
+    justify-content: center;
+    
+}
+
+.Menu{
+    content:"";
+}
+
+div.Menu{
+    position: absolute;
+    display: block;
+    background:url('./assets/menuIcon.png'), rgb(245, 245, 245);
+    clip-path: circle(25px at 75px 35px);
+    background-size: 20px;
+    background-position:10vh;
+    background-position-x: 65px;
+    background-position-y: 25px;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 160px;
+    contain:content;
+    padding-left: 5px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    transition-duration:500ms;
+    content-visibility: hidden;
+    
+}
+div.Menu:hover{
+    transition-duration: 500ms;
+    background:rgba(245, 245, 245,0.7);
+    width: 160px;
+    clip-path: circle(1000% at 40px 35px);
+    content-visibility:visible;
+
+}
+
+div.Menu::before{
+    content: '';
+    display: block;
+    height: 50px;
+    width: 50px;
+    background:url('./assets/ShoppingAmeliaLogo.png');
+    background-size: cover;
+    clip-path: circle(25px);
+    position: absolute;
+    top: 10px;
+    left:50px;   
+}
+
+
+
+
+
+#home{
+    background: url('./assets/home.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+#eventos{
+    background: url('./assets/eventos.png'),rgba(245, 245, 245,0.5);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+#simulação{
+    background: url('./assets/simulação.png'),rgba(245, 245, 245,0.5);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+
+}
+
+a.Menu{
+    transition-duration: 250ms;
+    background-color:rgba(245, 245, 245,0.5);
+    border:transparent;
+    display:flex;
+    height: 80px;
+    margin-top:20px;
+    margin-left: 0px;
+    width: 150px;
+    border-radius: 5px;
+    font-family:serif;
+    justify-content: center;
+    text-indent: 40px;
+    align-items: center;
+    
+
+
+}
+a.Menu::after{
+    content: '';
+    margin-top: 100px;
+    display: flex;
+    position: absolute;
+    height: 1px;
+    width:75px;
+    background-color:black;
+}
+a.Menu:hover{
+    box-shadow: 2px 2px 5px rgb(51, 68, 65);
+    transition-duration: 250ms;
+}
+#home:hover{
+    background:url('./assets/home.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+#eventos:hover{
+    background:url('./assets/eventos.png'),rgba(245, 245, 245,0.8);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+#simulação:hover{
+    background:url('./assets/simulação.png'),rgba(245, 245, 245,0.8);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    background-position-y: center;
+}
+
+
+
+#content-box{
+    display: flex;
+    position: absolute;
+    left: 10vw;
+    top: 10vh;
+    height: 80vh;
+    width: 80vw;
+    background:transparent;
+    align-content: center;
+    justify-content: center;
+    contain: content;
+    transition-duration: .8s;
+}
+#homeDiv{
+    display: block;
+    position: absolute;
+    transition-duration: 0.8s;
+    height: 500px;
+    width: 900px;
+    background: url('./assets/gettyimages-930010992-612x612.jpg'),rgba(245,245,245,.8);
+    background-size: 58% 66%;
+    background-repeat: no-repeat;
+    background-position-x: 350px;
+    background-position-y:95px;
+    border: 20px solid rgba(245,245,245,.8);
+    font-size: 20px;
+    justify-content: center;
+    text-align: center;
+    padding-left: 40px;
+
+}
+#homeText{
+    text-align: left;
+    display: block;
+    width: 300px;
+    margin-top: 100px;
+}
+
+#eventosDiv{
+    transition-duration: 0.8s;
+    position: relative;
+    left: 100%;
+    height: 700px;
+    width: 500px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.calendar{
+    display:grid;
+    grid-template-rows: 60px 35px ;
+    height:500px;
+    width:700px;
+    background-color:rgba(245,245,245,.9);
+    border-radius:8px;
+    border:2px solid red
+
+}
+.calendar td{
+    border: 1px solid black;
+    align-self: center;
+    justify-self: center; 
+}
+.calendar tr{
+    border: 1px solid black;
+}
+.calendar thead{
+
+    font-size: 28px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    font-family:Verdana,Tahoma, sans-serif;
+    color:rgba(0,0,0,.9);
+}
+.calendar thead::after{
+    content: '';
+    display: flex;
+    width: 80%;
+    height: 1px;
+    justify-self: center;
+    background-color: black;
+}
+
+.calendar td{
+    display: flexbox;
+    height: 60px;
+    width: 60px;
+    padding-top: 5px;
+
+    vertical-align: middle;
+    text-align: center;
+    border-color: gray;
+    border-radius: 5px;
+    font-size: 90%;
+
+}
+
+.calendar tr{
+    display: grid;
+    border-color: transparent;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+    width:100%;
+}
+
+#december6::after{
+    content:'Entrega PI-2';
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    font-size: 80%;
+}
+#december25::after{
+    content:'Natal';
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    font-size: 80%;
+}
+#december31::after{
+    content:'Último dia do ano';
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    font-size: 80%;
+}
+#december15::after{
+    content:'Promoção de natal Shopping amélia';
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    font-size: 70%;
+}
