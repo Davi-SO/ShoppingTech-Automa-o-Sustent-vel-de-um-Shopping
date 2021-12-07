@@ -1,0 +1,40 @@
+@import url('../entrada/pi.estacionamento-entrada.css');
+
+body{
+    background:url('./assets/backgroundSaida.jpg'),rgba(0,0,0,.7);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+
+#volteSempre{
+    display: block;
+    height: 40px;
+    width: 300px;
+    border: 5px groove grey;
+    background:url('./assets/telaPreta.jpg'); 
+    align-self: center;
+    justify-self: center;
+    margin-left: calc(50% - 150px);
+    margin-top: 30px;
+    font-family:monospace;
+    color: yellow;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+}
+#volteSempre::before{
+    content: '';
+    display: block;
+    height: 85px;
+    width: 30px;
+    align-self: center;
+    margin-left: 135px;
+    margin-top:-110px;
+    background:radial-gradient(ellipse at bottom left,black 50%,transparent 50%),
+    radial-gradient(ellipse at bottom right,black 50%,transparent 50%);
+    
+    
+
+}
